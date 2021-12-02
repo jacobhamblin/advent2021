@@ -14,16 +14,16 @@ depths = [int(item.strip()) for item in content]
 
 
 def test_part1_sample_input():
-    expect(day01.numIncreases(sample_depths), 7)
+    expect(day01.num_increases(sample_depths), 7)
 
 
 def test_part1_provided_input():
-    expect(day01.numIncreases(depths), 1766)
+    expect(day01.num_increases(depths), 1766)
 
 
 def test_part2_sample_input():
-    expect(day01.increasesSlidingWindow(sample_depths), 5)
+    expect(day01.increases_sliding_window(sample_depths), 5)
 
 
 def test_part2_provided_input():
-    expect(day01.increasesSlidingWindow(depths), 1797)
+    expect(day01.increases_sliding_window(depths), 1797)

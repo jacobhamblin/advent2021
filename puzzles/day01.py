@@ -1,4 +1,4 @@
-def numIncreases(depths):
+def num_increases(depths):
     count = 0
     for i in range(1, len(depths)):
         if depths[i] > depths[i - 1]:
@@ -6,7 +6,7 @@ def numIncreases(depths):
     return count
 
 
-def increasesSlidingWindow(depths):
+def increases_sliding_window(depths):
     count = 0
     cur_window = 0
     i = 0
