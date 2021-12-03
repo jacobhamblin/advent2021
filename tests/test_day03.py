@@ -39,4 +39,4 @@ def test_part2_sample_input():
 
 
 def test_part2_provided_input():
-    expect(day03.life_support_rating(binary), 230)
+    expect(day03.life_support_rating(binary), 3379326)

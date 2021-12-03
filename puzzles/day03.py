@@ -14,3 +14,38 @@ def power_consumption(data):
     gamma_rate = int("".join(most_common), 2)
     epsilon_rate = int("".join(least_common), 2)
     return gamma_rate * epsilon_rate
+
+
+def compare_o2(counts):
+    a, b = counts
+    if a == b or b > a:
+        return "1"
+    if a > b:
+        return "0"
+
+
+def compare_co2(counts):
+    a, b = counts
+    if a == b or b > a:
+        return "0"
+    if a > b:
+        return "1"
+
+
+def recurse(values, index, compare):
+    if len(values) == 1:
+        return values[0]
+    counts = [0, 0]
+    for value in values:
+        counts[int(value[index])] += 1
+    return recurse(
+        [v for v in values if v[index] == compare(counts)], index + 1, compare
+    )
+
+
+def life_support_rating(data):
+    o2 = recurse(data, 0, compare_o2)
+    co2 = recurse(data, 0, compare_co2)
+    o2 = int("".join(o2), 2)
+    co2 = int("".join(co2), 2)
+    return o2 * co2
