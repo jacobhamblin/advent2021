@@ -23,7 +23,7 @@ def get_return_value(board, final_num):
     return unmarked_sum * final_num
 
 
-def bingo(selected_nums, boards):
+def board_prep(boards):
     boards_dict = {}
     for i in range(len(boards)):
         board = boards[i]
@@ -42,6 +42,11 @@ def bingo(selected_nums, boards):
                 data["locations"][value] = (j, k)
             data["values"].append(values_line)
         boards_dict[i] = data
+    return boards_dict
+
+
+def first_bingo(selected_nums, boards):
+    boards_dict = board_prep(boards)
 
     cur_nums = set()
     for num in selected_nums:
@@ -57,3 +62,26 @@ def bingo(selected_nums, boards):
                 res = has_bingo(board, cur_nums)
                 if res:
                     return get_return_value(board, num)
+
+
+def last_bingo(selected_nums, boards):
+    boards_dict = board_prep(boards)
+
+    bingo_boards = set()
+    cur_nums = set()
+    for num in selected_nums:
+        cur_nums.add(num)
+
+        # i is board index
+        for i in range(len(boards_dict.keys())):
+            board = boards_dict[i]
+            if not i in bingo_boards:
+                if num in board["presence"]:
+                    row, col = board["locations"][num]
+                    board["values"][row][col]["selected"] = True
+                if len(cur_nums) > 4:
+                    res = has_bingo(board, cur_nums)
+                    if res:
+                        bingo_boards.add(i)
+                        if len(bingo_boards) == len(boards_dict.keys()):
+                            return get_return_value(board, num)

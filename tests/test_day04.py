@@ -78,16 +78,16 @@ boards.append(board)
 
 
 def test_part1_sample_input():
-    expect(day04.bingo(sample_selected_nums, sample_boards), 4512)
+    expect(day04.first_bingo(sample_selected_nums, sample_boards), 4512)
 
 
 def test_part1_provided_input():
-    expect(day04.bingo(selected_nums, boards), 4662)
+    expect(day04.first_bingo(selected_nums, boards), 4662)
 
 
 def test_part2_sample_input():
-    expect(day04.bingo(sample_selected_nums, sample_boards), 230)
+    expect(day04.last_bingo(sample_selected_nums, sample_boards), 1924)
 
 
 def test_part2_provided_input():
-    expect(day04.bingo(selected_nums, boards), 3379326)
+    expect(day04.last_bingo(selected_nums, boards), 12080)
