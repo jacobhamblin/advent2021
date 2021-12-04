@@ -45,18 +45,18 @@ sample_boards = [
         [1, 12, 20, 15, 19],
     ],
     [
-        [3, 15, 0, 2, 22],
-        [9, 18, 13, 17, 5],
-        [19, 8, 7, 25, 23],
-        [20, 11, 10, 24, 4],
-        [14, 21, 16, 12, 6],
-    ],
-    [
         [14, 21, 17, 24, 4],
         [10, 16, 15, 9, 19],
         [18, 8, 23, 26, 20],
         [22, 11, 13, 6, 5],
         [2, 0, 12, 3, 7],
+    ],
+    [
+        [3, 15, 0, 2, 22],
+        [9, 18, 13, 17, 5],
+        [19, 8, 7, 25, 23],
+        [20, 11, 10, 24, 4],
+        [14, 21, 16, 12, 6],
     ],
 ]
 
@@ -78,11 +78,11 @@ boards.append(board)
 
 
 def test_part1_sample_input():
-    expect(day04.bingo(sample_selected_nums, sample_boards), 198)
+    expect(day04.bingo(sample_selected_nums, sample_boards), 4512)
 
 
 def test_part1_provided_input():
-    expect(day04.bingo([], []), 693486)
+    expect(day04.bingo(selected_nums, boards), 4662)
 
 
 def test_part2_sample_input():
@@ -90,4 +90,4 @@ def test_part2_sample_input():
 
 
 def test_part2_provided_input():
-    expect(day04.bingo([], []), 3379326)
+    expect(day04.bingo(selected_nums, boards), 3379326)
