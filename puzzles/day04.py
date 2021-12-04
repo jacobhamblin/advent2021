@@ -22,10 +22,9 @@ def first_bingo(selected_nums, boards):
         cur_nums.add(num)
 
         for board in boards:
-            if len(cur_nums) > 4:
-                res = has_bingo(board, cur_nums)
-                if res:
-                    return get_return_value(board, cur_nums, num)
+            res = has_bingo(board, cur_nums)
+            if res:
+                return get_return_value(board, cur_nums, num)
 
 
 def last_bingo(selected_nums, boards):
@@ -34,13 +33,11 @@ def last_bingo(selected_nums, boards):
     for num in selected_nums:
         cur_nums.add(num)
 
-        # i is board index
         for i in range(len(boards)):
             board = boards[i]
             if not i in bingo_boards:
-                if len(cur_nums) > 4:
-                    res = has_bingo(board, cur_nums)
-                    if res:
-                        bingo_boards.add(i)
-                        if len(bingo_boards) == len(boards):
-                            return get_return_value(board, cur_nums, num)
+                res = has_bingo(board, cur_nums)
+                if res:
+                    bingo_boards.add(i)
+                    if len(bingo_boards) == len(boards):
+                        return get_return_value(board, cur_nums, num)
