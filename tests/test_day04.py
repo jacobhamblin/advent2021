@@ -63,6 +63,18 @@ sample_boards = [
 my_file = open("input/day04.txt", "r")
 content = my_file.readlines()
 lines = [item.strip() for item in content]
+selected_nums = [int(num) for num in lines[0].split(",")]
+
+boards = []
+board = []
+for line in lines[1:]:
+    if line == "":
+        if len(board):
+            boards.append(board)
+            board = []
+    else:
+        board.append([int(num) for num in line.split()])
+boards.append(board)
 
 
 def test_part1_sample_input():
@@ -74,8 +86,8 @@ def test_part1_provided_input():
 
 
 def test_part2_sample_input():
-    expect(day04.life_support_rating(sample_selected_nums, sample_boards), 230)
+    expect(day04.bingo(sample_selected_nums, sample_boards), 230)
 
 
 def test_part2_provided_input():
-    expect(day04.life_support_rating([], []), 3379326)
+    expect(day04.bingo([], []), 3379326)
