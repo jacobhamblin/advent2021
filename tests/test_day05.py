@@ -42,7 +42,7 @@ def test_part1_provided_input():
 
 
 def test_part2_sample_input():
-    expect(day05.overlapping_lines(sample_lines), 1924)
+    expect(day05.overlapping_lines(sample_lines), 12)
 
 
 def test_part2_provided_input():
